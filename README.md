@@ -1,33 +1,33 @@
 # Credit Card Fraud Detection System
 
-Every digital payment carries risk. Behind the scenes, intelligent systems must decide—within milliseconds—whether a transaction should be trusted, challenged, or blocked. This project recreates that decision-making process using machine learning.
+Every digital payment carries risk. Modern financial systems must decide—within milliseconds—whether a transaction should be approved, challenged, or blocked. This project replicates that real-world decision-making process using machine learning.
 
-The Credit Card Fraud Detection System is an end-to-end fraud risk engine that combines supervised learning, anomaly detection, and rule-based logic to identify suspicious transactions. It not only predicts fraud probability but also converts model outputs into meaningful risk levels and system actions through an interactive Streamlit dashboard.
+The **Credit Card Fraud Detection System** is an end-to-end fraud risk engine that combines supervised learning, anomaly detection, and rule-based decision logic to identify suspicious transactions. In addition to predicting fraud probability, the system translates model outputs into actionable risk levels and system decisions through an interactive Streamlit application.
 
-This project demonstrates how real-world financial institutions design fraud detection pipelines that balance accuracy, interpretability, and operational decision-making.
+This project demonstrates how financial institutions design fraud detection pipelines that balance accuracy, interpretability, and operational decision-making.
 
 ---
 
 ## Project Overview
 
-The system simulates a realistic fraud detection workflow used in banking and fintech environments. It processes transaction attributes, extracts behavioral risk signals, evaluates them using multiple machine learning models, and produces actionable outcomes.
+The system simulates a realistic fraud detection workflow commonly used in banking and fintech platforms. It processes transaction attributes, extracts behavioral risk signals, evaluates them using multiple machine learning models, and produces actionable outcomes.
 
-Key capabilities include:
-- Fraud probability prediction using multiple ML models  
-- Anomaly detection for unseen or rare patterns  
-- Risk-level classification (Low / Medium / High)  
+### Key Capabilities
+- Fraud probability prediction using multiple machine learning models  
+- Anomaly detection for unseen or rare transaction patterns  
+- Risk-level classification (Low, Medium, High)  
 - Automated decision logic for transaction handling  
-- Interactive user interface for real-time experimentation  
+- Interactive dashboard for real-time experimentation  
 
 ---
 
 ## Key Features
 
 - End-to-end fraud detection pipeline  
-- Multiple supervised and unsupervised models  
-- Risk-based decision engine  
+- Combination of supervised and unsupervised learning models  
+- Risk-based decision engine aligned with real-world systems  
 - Interactive Streamlit dashboard  
-- Preprocessed and feature-engineered dataset  
+- Feature-engineered transactional dataset  
 - Model persistence and reuse  
 - Modular and scalable project structure  
 
@@ -43,13 +43,13 @@ Key capabilities include:
 - LightGBM
 - Multi-Layer Perceptron (Neural Network)
 
-### Unsupervised Model
+### Unsupervised Learning Model
 - Isolation Forest for anomaly detection
 
 ---
 
 ## Project Structure
-<pre>
+
 Credit Card Fraud Detection/
 │
 ├── data/
@@ -70,13 +70,15 @@ Credit Card Fraud Detection/
 ├── app.py
 ├── requirements.txt
 └── README.md
-</pre>
+
+yaml
+Copy code
 
 ---
 
 ## Dataset Description
 
-The dataset represents transaction-level information with engineered behavioral features commonly used in fraud detection systems.
+The dataset represents transaction-level information enriched with engineered behavioral features commonly used in fraud detection systems.
 
 ### Numerical Features
 - amount  
@@ -100,15 +102,15 @@ The dataset represents transaction-level information with engineered behavioral 
 - browser  
 
 ### Target Variable
-- `is_fraud`  
-  - `1` → Fraudulent transaction  
-  - `0` → Legitimate transaction  
+- is_fraud  
+  - 1 → Fraudulent transaction  
+  - 0 → Legitimate transaction  
 
 ---
 
 ## Feature Engineering Strategy
 
-To improve detection performance and realism, the dataset includes engineered behavioral indicators such as:
+To enhance detection performance and reflect real-world fraud patterns, the dataset includes engineered behavioral indicators such as:
 
 - Transaction velocity signals  
 - Cross-border activity indicators  
@@ -116,22 +118,22 @@ To improve detection performance and realism, the dataset includes engineered be
 - Spending deviation ratios  
 - Behavioral anomaly markers  
 
-These features help models learn abnormal transaction behavior rather than relying only on raw values.
+These features enable models to learn abnormal transaction behavior rather than relying solely on raw transactional values.
 
 ---
 
 ## Model Training Pipeline
 
-Implemented in `src/train_models.py`, the training workflow includes:
+Model training is implemented in `src/train_models.py` and includes the following steps:
 
 - Train–test split  
 - Feature scaling for numerical variables  
-- One-hot encoding of categorical features  
+- One-hot encoding for categorical variables  
 - Class imbalance handling using SMOTE  
-- Model training and calibration  
-- Serialization of trained models using Joblib  
+- Model training and probability calibration  
+- Model serialization using Joblib  
 
-All trained models are saved in the `models/` directory and reused during inference.
+All trained models are stored in the `models/` directory and reused during inference.
 
 ---
 
@@ -153,97 +155,97 @@ All trained models are saved in the `models/` directory and reused during infere
 | MEDIUM    | Require step-up authentication |
 | LOW       | Approve transaction |
 
-This separation between prediction and decision logic reflects how real financial systems operate.
+This separation of prediction and decision logic mirrors the design of real-world financial fraud detection systems.
 
 ---
 
 ## Streamlit Application
 
-The Streamlit interface enables:
+The Streamlit application enables:
 
-- Model selection at runtime  
+- Runtime model selection  
 - Interactive transaction input  
 - Real-time fraud probability prediction  
 - Risk classification display  
-- Automated decision output  
-- Clean, user-friendly dashboard layout  
+- Automated decision recommendations  
+- Clean and user-friendly interface  
 
 ---
 
 ## How to Run the Project
 
-### 1. Create a virtual environment
-```python -m venv venv
+### Step 1: Create a virtual environment
+```bash
+python -m venv venv
+Step 2: Activate the virtual environment
+Windows
 
-2. Activate the environment
-- For Windows
+bash
+Copy code
 venv\Scripts\activate
+macOS / Linux
 
--For macOS / Linux
+bash
+Copy code
 source venv/bin/activate
-
-3. Install dependencies
+Step 3: Install dependencies
+bash
+Copy code
 pip install -r requirements.txt
-
-4. Train the models
+Step 4: Train the models
+bash
+Copy code
 cd src
 python train_models.py
 This step generates trained model files inside the models/ directory.
 
-5. Launch the Streamlit app
+Step 5: Launch the Streamlit application
+bash
+Copy code
 cd ..
 streamlit run app.py
-Open in your browser:
+Access the application in your browser at:
 
+arduino
+Copy code
 http://localhost:8501
+Use Cases
+Real-Time Transaction Risk Screening
+Evaluates card transactions at the payment gateway level to determine whether a transaction should be approved, challenged, or blocked.
 
-```
----
+Fraud Analyst Decision Support
+Provides fraud analysts with fraud probability scores, risk classification, and recommended system actions to accelerate investigation workflows.
 
-## Use Cases
+Behavioral Fraud Pattern Analysis
+Identifies abnormal patterns such as sudden spending spikes, unusual transaction velocity, and inconsistent geographic activity.
 
-This system is designed to resemble how fraud detection logic is applied in real-world financial platforms. It can be adapted or extended for the following practical scenarios:
+Risk Policy Prototyping
+Allows experimentation with fraud thresholds and decision rules before production deployment in financial systems.
 
-### 1. Real-Time Transaction Risk Screening
-Used at the payment gateway level to evaluate incoming card transactions and classify them as low, medium, or high risk before authorization.
+Portfolio-Grade Machine Learning Demonstration
+Showcases end-to-end machine learning pipeline design, model training, evaluation, and interactive deployment.
 
-### 2. Fraud Analyst Decision Support
-Acts as a decision-support tool for fraud analysts by providing:
-- Fraud probability scores  
-- Risk categorization  
-- Suggested system actions  
-This helps reduce manual effort and speeds up investigation workflows.
+Future Enhancements
+Model explainability using SHAP or LIME
 
-### 3. Behavioral Fraud Pattern Analysis
-Helps analyze user spending behavior and detect abnormal patterns such as:
-- Sudden spikes in transaction amounts  
-- Unusual transaction velocity  
-- Cross-border or location-inconsistent activity  
+Dynamic and weighted risk thresholds
 
-### 4. Risk Policy Prototyping for Fintech Systems
-Can be used to experiment with different threshold values and rule-based logic to design and test fraud policies before deploying them in production systems.
+REST API exposure using FastAPI or Flask
 
-### 5. Portfolio-Grade Machine Learning Demonstration
-Serves as a strong portfolio project showcasing:
-- End-to-end ML pipeline design  
-- Model training and evaluation  
-- Decision logic integration  
-- Interactive deployment using Streamlit  
+Database integration for transaction storage
 
----
+Model monitoring and data drift detection
 
-## Future Enhancements
+Dockerization and cloud deployment
 
-- Add model explainability using SHAP or LIME  
-- Improve risk scoring with weighted and dynamic thresholds  
-- Expose prediction APIs using FastAPI or Flask  
-- Store transactions and predictions in a database  
-- Enable model monitoring and drift detection  
-- Deploy using Docker and cloud platforms (AWS / GCP / Azure)  
-- Add dashboards, batch uploads, and improved UI visualizations  
+Batch prediction and advanced visual dashboards
+
+Collaborators
+Tapasya Patel
+
+Varun Patel
+
+yaml
+Copy code
 
 ---
-
-## Collaborators
-### Tapasya Patel 
-### Varun Patel
