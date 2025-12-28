@@ -175,22 +175,22 @@ The Streamlit interface enables:
 ### 1. Create a virtual environment
 ```python -m venv venv
 
-### 2. Activate the environment
+2. Activate the environment
 - For Windows
 venv\Scripts\activate
 
 -For macOS / Linux
 source venv/bin/activate
 
-### 3. Install dependencies
+3. Install dependencies
 pip install -r requirements.txt
 
-### 4. Train the models
+4. Train the models
 cd src
 python train_models.py
 This step generates trained model files inside the models/ directory.
 
-### 5. Launch the Streamlit app
+5. Launch the Streamlit app
 cd ..
 streamlit run app.py
 Open in your browser:
