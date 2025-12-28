@@ -173,7 +173,7 @@ The Streamlit interface enables:
 ## How to Run the Project
 
 ### 1. Create a virtual environment
-python -m venv venv
+```python -m venv venv
 
 ### 2. Activate the environment
 - For Windows
@@ -197,6 +197,7 @@ Open in your browser:
 
 http://localhost:8501
 
+```
 ---
 
 ## Use Cases
@@ -240,3 +241,9 @@ Serves as a strong portfolio project showcasing:
 - Enable model monitoring and drift detection  
 - Deploy using Docker and cloud platforms (AWS / GCP / Azure)  
 - Add dashboards, batch uploads, and improved UI visualizations  
+
+---
+
+## Collaborators
+### Tapasya Patel 
+### Varun Patel
